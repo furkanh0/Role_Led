@@ -1,0 +1,19 @@
+int role=2;
+char karakter;
+void setup() {
+   pinMode(role,OUTPUT);
+   Serial.begin(9600);
+   Serial.println("Ledi Yakmak İçin---1");
+   Serial.println("Ledi Södürmek İçin---0");
+   Serial.print("Basınız..");
+}
+
+void loop() {
+  
+  if (Serial.available()>0) {
+  karakter=Serial.read();
+  if (karakter=='0') digitalWrite(role,LOW);
+  else if (karakter=='1') digitalWrite(role,HIGH);
+  }
+  delay(100);
+}
